@@ -9,12 +9,14 @@ export const Register = () => {
         password:""
     })
     const handleChange = e =>{
+        
         const {name,value} = e.target 
         setUser({...user,
             [name]:value
         })
     }
-    const register =()=>{
+    const register =(e)=>{
+        e.preventDefault()
         const {name,email,password}=user 
         if(name&&email&&password){
             axios.post('',user).then(res=>console.log(res))

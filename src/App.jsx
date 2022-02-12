@@ -9,7 +9,7 @@ import { Register } from "./Components/Register/register";
     <div> 
       <Router>
         <Routes> 
-          <Route exact path="/" element={<Login />} />
+          <Route exact path="/" element={<Login/>} />
           <Route exact path="/Register" element={<Register/>}></Route>
         </Routes>
       </Router>

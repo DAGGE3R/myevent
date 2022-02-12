@@ -1,13 +1,22 @@
-.Email{
-    background-color: red;
-    color: white;
-}
 body{
     margin: 0;
     padding: 0; 
 }
 .form{
     display: flex;
-    justify-content: center;
     margin-top: 15%;
+    flex-direction: column;
+    width: 15%;
 }
+.Email,.pw {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5%;
+    margin-bottom: 10%;
+}
+.sub-btn{
+    border: 0.5px solid red;
+    border-radius: 10px;
+}
+
