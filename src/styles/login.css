@@ -1,0 +1,13 @@
+.Email{
+    background-color: red;
+    color: white;
+}
+body{
+    margin: 0;
+    padding: 0; 
+}
+.form{
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+}

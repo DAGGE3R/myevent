@@ -1,9 +1,10 @@
 import {useState} from 'react'
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
+import'../../styles/login.css'
 
 
- const Login = () => {
+ export const Login = () => {
   const navigate =useNavigate()
     const[user,setUser] = useState({
       email:"",
@@ -25,11 +26,11 @@ import {useNavigate} from "react-router-dom"
     };
 
   return (
-    <div>
-      <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Email" />
+    <div className='form' > 
+      <input type="text" className="Email" name="email" value={user.email} onChange={handleChange} placeholder="Email" />
       <input type="text" name="password" value={user.password} onChange={handleChange} placeholder="Password" />
       <button type='submit' onClick={login} > Login </button>
-      <a href="_blank" target="_blank" onClick={navigate("/Register")}
+      <a href="" onClick={navigate("/Register")}
       > 
       <span>
       you don't have an account ?  
@@ -39,4 +40,3 @@ import {useNavigate} from "react-router-dom"
     </div>
   )
 }
-export default Login
