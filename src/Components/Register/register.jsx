@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Button, Container, Form } from "../../styles/registerStyle";
+import { useNavigate } from "react-router-dom";
+import { Button, Container, Form, Nav } from "../../styles/registerStyle";
+import cuate from "../../Assets/cuate.png";
 
 export const Register = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -23,8 +26,16 @@ export const Register = () => {
   };
   return (
     <Container>
+      <Nav>
+        <h1>
+          MY<span>EVENT</span>
+        </h1>
+      </Nav>
+      <img src={cuate} alt="" />
       <Form action="#">
+        <h3>Register</h3>
         <input
+          autoFocus
           type="text"
           name="name"
           value={user.name}
@@ -50,6 +61,12 @@ export const Register = () => {
           Register{" "}
         </Button>
       </Form>
+      <h4>
+        <span>OR</span>
+      </h4>
+      <a href="/Login" onClick={() => navigate("/Login")}>
+        Sign in with your account
+      </a>
     </Container>
   );
 };

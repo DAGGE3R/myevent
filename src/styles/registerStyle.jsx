@@ -19,6 +19,8 @@ export const Button = styled.button`
   }
 `;
 export const Container = styled.div`
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,500;0,900;1,300;1,600&display=swap");
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
   img {
@@ -27,12 +29,61 @@ export const Container = styled.div`
     margin-right: 12%;
     margin-top: 3%;
   }
+  a {
+    text-decoration: none;
+    box-sizing: border-box;
+    width: 18%;
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 3%;
+    margin-left: 13.5%;
+  }
+  h4 {
+    width: 15%;
+    text-align: center;
+    border-bottom: 1px solid #c4c4c4;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    margin-left: 11.5%;
+    margin-top: 2%;
+  }
+
+  h4 span {
+    color: #c4c4c4;
+    background: #fff;
+    padding: 0 10px;
+  }
 `;
+
+export const Nav = styled.nav`
+  h1 {
+    margin: 0;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-weight: 300;
+    font-size: 50px;
+    color: black;
+  }
+  h1 span {
+    font-weight: 600;
+    color: #e63946;
+  }
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 15%;
+  margin-left: 10%;
+  margin-top: 12%;
+  width: 500px;
+
+  h3 {
+    font-weight: 600;
+    font-size: 30px;
+    text-decoration: underline;
+    margin-bottom: 10%;
+    color: #e63946;
+  }
 
   input[type="text"],
   input[type="password"] {
@@ -44,20 +95,5 @@ export const Form = styled.form`
     box-sizing: border-box;
     margin-bottom: 10px;
     font-size: 16px;
-  }
-  h4 {
-    width: 20.5%;
-    text-align: center;
-    border-bottom: 1px solid #c4c4c4;
-    line-height: 0.1em;
-    margin: 10px 0 20px;
-    margin-left: 2px;
-    margin-top: 30px;
-  }
-
-  h4 span {
-    color: #c4c4c4;
-    background: #fff;
-    padding: 0 10px;
   }
 `;
