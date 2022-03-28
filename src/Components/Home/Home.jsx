@@ -10,6 +10,7 @@ export const Home = () => {
     { name: "sarra", description: "123" },
     { name: "mounira", description: "double feuille" },
     { name: "salma", description: "sousou" },
+    { name: "Samira", description: "sousou2" },
   ];
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -22,14 +23,19 @@ export const Home = () => {
         <h1>
           MY<span>EVENT</span>
         </h1>
-        <a href="Reserve">Reserve</a>
+        {/*//!localStorage.setItem("token", "123654789");*/}
         {loggedIn ? (
-          <a href="/Event">Create an event</a>
+          <Link to={"/Reserve"}>Reserve</Link>
+        ) : (
+          <Link to="/Login">Reserve</Link>
+        )}
+
+        {loggedIn ? (
+          <Link to={"/Event"}>Create an event</Link>
         ) : (
           <Link to="/Login">Create an event</Link>
         )}
-        {/* <a href="Event">Create an event</a> */}
-        <a href="Login">Sign in </a>
+        <Link to={"/Login"}>Sign in</Link>
       </Nav>
       <Img>
         <h3>Live your life at it's fullest</h3>

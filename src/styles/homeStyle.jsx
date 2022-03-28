@@ -58,6 +58,10 @@ export const Container = styled.div`
   font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
+  h2 {
+    margin-top: 2.5%;
+    margin-left: 2%;
+  }
 `;
 export const Img = styled.div`
   background-color: black;

@@ -24,9 +24,9 @@ export const Container = styled.div`
   margin: 0;
   padding: 0;
   img {
-    width: 700px;
+    width: 55%;
     float: right;
-    margin-right: 12%;
+    margin-right: 7%;
     margin-top: 3%;
   }
   a {
@@ -56,6 +56,7 @@ export const Container = styled.div`
 `;
 
 export const Nav = styled.nav`
+  width: 15%;
   h1 {
     margin: 0;
     padding-top: 30px;
@@ -74,7 +75,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   margin-left: 10%;
-  margin-top: 12%;
+  margin-top: 5%;
   width: 500px;
 
   h3 {
@@ -87,7 +88,8 @@ export const Form = styled.form`
 
   input[type="text"],
   input[type="password"],
-  input[type="date"] {
+  input[type="date"],
+  input[type="number"] {
     border: 1px solid #c4c4c4;
     border-radius: 5px;
     padding: 10px 10px 10px;

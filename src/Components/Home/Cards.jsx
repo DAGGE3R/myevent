@@ -7,7 +7,8 @@ export const Cards = (props) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-        margin: 10,
+        marginLeft: "50%",
+        marginTop: "10%",
       }}
     >
       <img src="https://random.imagecdn.app/200/250" alt=""></img>

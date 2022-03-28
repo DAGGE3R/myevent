@@ -27,9 +27,11 @@ export const Register = () => {
   return (
     <Container>
       <Nav>
-        <h1>
-          MY<span>EVENT</span>
-        </h1>
+        <a href="/">
+          <h1>
+            MY<span>EVENT</span>
+          </h1>
+        </a>
       </Nav>
       <img src={cuate} alt="" />
       <Form action="#">
