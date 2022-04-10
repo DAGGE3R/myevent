@@ -3,11 +3,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button, Container, Form, Nav } from "../../styles/eventStyle";
 import eventPic from "../../Assets/event.png";
+import { FormEvent } from "./FormEvent";
 
 export const Event = () => {
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
   const [event, setEvent] = useState({
-    name: "",
+    eventName: "",
     type: "",
     category: "",
     description: "",
@@ -22,7 +24,7 @@ export const Event = () => {
   const addEvent = (e) => {
     e.preventDefault();
     const {
-      name,
+      eventName,
       type,
       category,
       description,
@@ -31,7 +33,7 @@ export const Event = () => {
       participantNumber,
     } = event;
     if (
-      name &&
+      eventName &&
       type &&
       category &&
       description &&
@@ -39,7 +41,13 @@ export const Event = () => {
       location &&
       participantNumber
     ) {
-      axios.post("", event).then((res) => console.log(res));
+      axios
+        .post("http://localhost:3001/api/createEvent", event, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => console.log(res));
       navigate("/Profile");
     } else {
       alert("invalid input");
@@ -55,62 +63,13 @@ export const Event = () => {
         </a>
       </Nav>
       <img src={eventPic} alt="" />
-      <Form action="#">
-        <h3>Create your event</h3>
-        <input
-          autoFocus
-          type="text"
-          name="name"
-          value={event.name}
-          onChange={handleChange}
-          placeholder="Event Name "
-        />
-        <input
-          type="text"
-          name="type"
-          value={event.type}
-          onChange={handleChange}
-          placeholder="Type"
-        />
-        <input
-          type="text"
-          name="category"
-          value={event.category}
-          onChange={handleChange}
-          placeholder="Category"
-        />
-        <input
-          type="text"
-          name="description"
-          value={event.description}
-          onChange={handleChange}
-          placeholder="Description"
-        />
-        <input
-          type="number"
-          name="participantNumber"
-          value={event.participantNumber}
-          onChange={handleChange}
-          placeholder="Number of participants"
-        />
-        <input
-          type="date"
-          name="date"
-          value={event.date}
-          onChange={handleChange}
-          placeholder="Date"
-        />
-        <input
-          type="text"
-          name="location"
-          value={event.location}
-          onChange={handleChange}
-          placeholder="Location"
-        />
-        <Button type="submit" onClick={addEvent}>
-          Create event
-        </Button>
-      </Form>
+      <FormEvent
+        event={event}
+        handleChange={handleChange}
+        handleSave={addEvent}
+        btnText="Create event"
+        title="Create your event"
+      />
     </Container>
   );
 };

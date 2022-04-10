@@ -36,9 +36,9 @@ export const Card = styled.div`
   padding: 0;
   margin-left: 5%;
   border-radius: 5px;
-  width: 200px;
-  display: flex;
-  flex-direction: row;
+  width: 80vw;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
 
   img {
     border-radius: 10px;

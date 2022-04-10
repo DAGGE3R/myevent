@@ -22,9 +22,11 @@ export const Login = () => {
 
   const login = (e) => {
     e.preventDefault();
-    axios.post("", user).then((res) => {
+    axios.post("http://localhost:3001/api/login", user).then((res) => {
       alert(res.data.message);
       //setLoginUser(res.data.user)
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("userID", res.data.user);
       navigate("/");
     });
   };
@@ -52,7 +54,7 @@ export const Login = () => {
           autoFocus
         />
         <input
-          type="text"
+          type="password"
           className="pw"
           name="password"
           value={user.password}

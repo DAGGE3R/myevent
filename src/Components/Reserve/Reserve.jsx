@@ -1,12 +1,34 @@
 import React from "react";
-import { Coming } from "../../styles/profileStyle";
-import soon from "../../Assets/soon.png";
+import { Nav } from "../../styles/eventStyle";
+import { Card } from "../../styles/homeStyle";
+import { Grid } from "../../styles/reserveStyle";
+import { Cards } from "../Home/Cards";
 
 export const Reserve = () => {
+  const dummyData = [
+    { name: "Samir", description: "testing" },
+    { name: "sarra", description: "123" },
+    { name: "mounira", description: "double feuille" },
+    { name: "salma", description: "sousou" },
+    { name: "Samira", description: "sousou2" },
+    { name: "Samir", description: "testing" },
+    { name: "sarra", description: "123" },
+    { name: "mounira", description: "double feuille" },
+    { name: "salma", description: "sousou" },
+    { name: "Samira", description: "sousou2" },
+  ];
   return (
-    <Coming>
-      <img src={soon} alt="soon.png" />
-      <h1>COMING SOON</h1>
-    </Coming>
+    <div>
+      <Grid>
+        <Card>
+          {dummyData.map((element) => (
+            <Cards
+              name={element.name}
+              description={element.description}
+            ></Cards>
+          ))}
+        </Card>
+      </Grid>
+    </div>
   );
 };

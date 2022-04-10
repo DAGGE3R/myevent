@@ -1,6 +1,50 @@
+import React from "react";
 import styled from "styled-components";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ReportIcon from "@mui/icons-material/Report";
+import EditIcon from "@mui/icons-material/Edit";
+
+export const MyEventCard = ({ event, onDelete, onEdit }) => {
+  return (
+    <div>
+      <ProfileCard>
+        <img src="https://random.imagecdn.app/150/150" alt=""></img>
+        <div className="descName">
+          <h3>{event.eventName}</h3>
+          <p>{event.description}</p>
+        </div>
+
+        <div
+          className="icons"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            float: "right",
+            marginTop: "0.9%",
+            marginRight: "0.8%",
+          }}
+        >
+          <StyleIcon onClick={onDelete}></StyleIcon>
+          <StyleRepIcon />
+          <StyleEdit onClick={onEdit} />
+        </div>
+      </ProfileCard>
+    </div>
+  );
+};
+const StyleEdit = styled(EditIcon)`
+  color: White;
+  float: right;
+  background-color: #e63946;
+  border-radius: 5px;
+  padding: 8px;
+  margin-top: 20%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e32231;
+  }
+`;
 export const ProfileCard = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,500;0,900;1,300;1,600&display=swap");
   font-family: "Montserrat", sans-serif;
@@ -10,11 +54,12 @@ export const ProfileCard = styled.div`
   border-radius: 20px;
   padding: 10px;
   margin: auto;
-  /* position: relative; */
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   img {
+    /* position: absolute; */
     border-radius: 20px;
   }
   h3 {
@@ -22,13 +67,11 @@ export const ProfileCard = styled.div`
     font-size: 32px;
     margin: 1%;
     color: #e63946;
-    /* margin-top: 1%; */
   }
   p {
     font-weight: 300;
     color: white;
     margin: 2%;
-    /* margin-top: 2%; */
   }
 `;
 
@@ -37,7 +80,7 @@ export const StyleIcon = styled(RemoveIcon)`
   float: right;
   background-color: #e63946;
   border-radius: 5px;
-  padding: 15px;
+  padding: 8px;
   cursor: pointer;
 
   &:hover {
@@ -49,7 +92,7 @@ export const StyleRepIcon = styled(ReportIcon)`
   float: right;
   background-color: #e63946;
   border-radius: 5px;
-  padding: 15px;
+  padding: 8px;
   margin-top: 20%;
   cursor: pointer;
 
