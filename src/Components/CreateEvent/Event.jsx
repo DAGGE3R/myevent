@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Button, Container, Form, Nav } from "../../styles/eventStyle";
+import { Container, Nav } from "../../styles/eventStyle";
 import eventPic from "../../Assets/event.png";
 import { FormEvent } from "./FormEvent";
 
