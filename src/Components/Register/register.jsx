@@ -19,9 +19,11 @@ export const Register = () => {
     e.preventDefault();
     const { name, email, password } = user;
     if (name && email && password) {
-      axios
-        .post("http://localhost:3001/api/register", user)
-        .then((res) => console.log(res));
+      axios.post("http://localhost:3001/api/register", user).then((res) => {
+        console.log(res);
+        alert("registration done ");
+        navigate("/Login");
+      });
     } else {
       alert("invalid input");
     }

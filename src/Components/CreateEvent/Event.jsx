@@ -48,7 +48,7 @@ export const Event = () => {
           },
         })
         .then((res) => console.log(res));
-      navigate("/Profile");
+      navigate("/");
     } else {
       alert("invalid input");
     }

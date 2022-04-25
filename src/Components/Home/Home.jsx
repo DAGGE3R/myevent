@@ -3,28 +3,35 @@ import { Nav, Container, Img, Card } from "../../styles/homeStyle";
 import { Cards } from "./Cards";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [events, setEvents] = useState([]);
-
-  const dummyData = [
-    { name: "Samir", description: "testing" },
-    { name: "sarra", description: "123" },
-    { name: "mounira", description: "double feuille" },
-    { name: "salma", description: "sousou" },
-    { name: "Samira", description: "sousou2" },
-  ];
+  const navigate = useNavigate();
 
   const getEvents = async () => {
     const res = await axios.get("http://localhost:3001/api/home");
     const data = await res.data;
     setEvents([...data.event]);
   };
+
+  const authAdmin = () => {
+    let x = prompt("enter Code here");
+    if (x === "123456") {
+      navigate("/admin");
+    } else {
+      alert("Wrong passcode");
+    }
+  };
+
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) setLoggedIn(true);
     getEvents();
+    const token = localStorage.getItem("token");
+    if (token)
+      return () => {
+        setLoggedIn(true);
+      };
   }, [events]);
 
   return (
@@ -33,13 +40,13 @@ export const Home = () => {
         <h1>
           MY<span>EVENT</span>
         </h1>
-        {/*localStorage.setItem("token", "123654789");*/}
         {loggedIn ? (
-          <Link to={"/Reserve"}>Reserve</Link>
+          <a style={{ cursor: "pointer" }} onClick={() => authAdmin()}>
+            Admin Panel
+          </a>
         ) : (
-          <Link to="/Login">Reserve</Link>
+          <Link to="/Login">Admin Panel</Link>
         )}
-
         {loggedIn ? (
           <Link to={"/Event"}>Create an event</Link>
         ) : (

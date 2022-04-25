@@ -3,13 +3,14 @@ import styled from "styled-components";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ReportIcon from "@mui/icons-material/Report";
 import EditIcon from "@mui/icons-material/Edit";
+import { Link } from "react-router-dom";
 
 export const MyEventCard = ({ event, onDelete, onEdit }) => {
   return (
     <div>
       <ProfileCard>
         <img src="https://random.imagecdn.app/150/150" alt=""></img>
-        <div className="descName">
+        <div>
           <h3>{event.eventName}</h3>
           <p>{event.description}</p>
         </div>
@@ -19,13 +20,14 @@ export const MyEventCard = ({ event, onDelete, onEdit }) => {
           style={{
             display: "flex",
             flexDirection: "column",
-            float: "right",
             marginTop: "0.9%",
             marginRight: "0.8%",
           }}
         >
           <StyleIcon onClick={onDelete}></StyleIcon>
-          <StyleRepIcon />
+          <Link to={"/report"}>
+            <StyleRepIcon />
+          </Link>
           <StyleEdit onClick={onEdit} />
         </div>
       </ProfileCard>
@@ -57,7 +59,7 @@ export const ProfileCard = styled.div`
   margin-top: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   img {
     /* position: absolute; */
     border-radius: 20px;
@@ -67,11 +69,15 @@ export const ProfileCard = styled.div`
     font-size: 32px;
     margin: 1%;
     color: #e63946;
+    max-width: 100%;
+    max-height: 50%;
   }
   p {
     font-weight: 300;
     color: white;
     margin: 2%;
+    max-width: 100%;
+    max-height: 30%;
   }
 `;
 

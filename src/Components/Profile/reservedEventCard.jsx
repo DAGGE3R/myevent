@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   ProfileCard,
   StyleIcon,
@@ -8,9 +9,15 @@ import {
 export const EventCard = ({ event, onDelete }) => {
   return (
     <div style={{ margin: "15px auto" }}>
-      <ProfileCard>
+      <ProfileCard
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
         <img src="https://random.imagecdn.app/150/150" alt=""></img>
-        <div className="descName">
+        <div>
           <h3>{event.eventName}</h3>
           <p>{event.description}</p>
         </div>
@@ -20,13 +27,14 @@ export const EventCard = ({ event, onDelete }) => {
           style={{
             display: "flex",
             flexDirection: "column",
-            float: "right",
             marginTop: "1.5%",
             marginRight: "1.5%",
           }}
         >
           <StyleIcon onClick={onDelete}></StyleIcon>
-          <StyleRepIcon />
+          <Link to={"/report"}>
+            <StyleRepIcon />
+          </Link>
         </div>
       </ProfileCard>
     </div>
